@@ -1,0 +1,36 @@
+🔹 What is npm?
+
+npm = Node Package Manager
+It allows you to install, share, and manage reusable code libraries (called packages or modules).
+
+🔹 Initializing npm
+
+Inside a folder, run:
+
+npm init -y
+
+This creates a package.json file that stores info about your project and dependencies.
+
+📄 Example package.json
+
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {}
+}
+
+🔹 Installing a Package
+
+Example: Install the chalk library for colored console output.
+
+npm install chalk
+
+📄 Use it:
+
+import chalk from "chalk";
+console.log(chalk.green("Hello, Node.js World!"));
+
+🖥️ Output (in green):
+
+Hello, Node.js World!

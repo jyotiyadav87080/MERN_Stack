@@ -1,0 +1,30 @@
+<!-- File System & Streams
+🔹 The fs Module
+
+fs stands for File System — it lets Node interact with files on your computer.
+
+📘 Reading a File
+
+📄 readFile.js
+
+import fs from 'fs';
+
+fs.readFile('message.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log("📖 File Content:", data);
+});
+
+📄 message.txt
+
+Hello from Node.js!
+
+📕 Writing to a File
+
+📄 writeFile.js
+
+import fs from 'fs';
+
+fs.writeFile('output.txt', 'Node.js is awesome!', (err) => {
+  if (err) throw err;
+  console.log('✅ File has been saved!');
+}); -->
