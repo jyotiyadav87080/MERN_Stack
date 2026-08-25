@@ -1,0 +1,128 @@
+<!-- 🔹 What is a Callback?
+
+A callback is just a function that you pass into another function.
+
+The main function then calls it later when its own work is done.
+
+👉 Think of it like:
+
+You order pizza (main function).
+
+You give your phone number (callback function).
+
+When the pizza is ready, the shop calls you back. 🍕📞
+
+🔹 Why Callbacks?
+
+Without callbacks: Functions run immediately one after the other.
+
+With callbacks: You can control when and how another function runs.
+
+Callbacks are super useful when something takes time (like waiting for a file, database, or API).
+
+🔹 Example 1: Function Sequence Without Callbacks -->
+
+ <!DOCTYPE html>
+<html>
+<body>
+<h2>Callbacks Example 1</h2>
+<p id="demo"></p>
+
+<script>
+
+// function sayGoodbye() {
+//   document.getElementById("demo").innerHTML += "Goodbye<br>";
+// console.log("Goodbye"); 
+  
+// }
+// function sayHello() {
+//   document.getElementById("demo").innerHTML += "Hello<br>";
+//  console.log("Hello"); 
+// }
+
+
+// sayHello();
+// sayGoodbye();  // runs after hello
+
+// sayGoodbye();
+// sayHello();    // runs after goodbye
+
+function sayHello(callback) {
+  console.log("Hello");
+  callback();  // run when Hello is finished
+}
+
+function sayGoodbye() {
+  console.log("Goodbye");
+}
+
+sayHello(sayGoodbye);  // Goodbye runs only after Hello completes
+
+function add (callback) {
+  let a = 5;
+  let b = 10;
+  let sum = a + b;
+  console.log("Sum:", sum);
+  callback(); // run when addition is finished
+}
+
+function multiply() {
+  let a = 5;
+  let b = 10;
+  let product = a * b;
+  console.log("Product:", product);
+}
+
+add(multiply);  // multiply runs only after addition completes
+
+</script>
+</body>
+</html> 
+
+
+
+
+
+<!-- 🔹 Example 4: Filtering With Callback (Real-Life)
+
+Imagine you have a box of fruits 🍌🍎🍊 and want only oranges.
+You give the box (array) to your friend with instructions (callback) — “pick only oranges”. -->
+
+ <!DOCTYPE html>
+<html>
+<body>
+<h2>Callbacks Example 4</h2>
+<p id="demo"></p>
+
+<script>
+// Our fruits basket (positive and negative numbers = good vs bad fruits)
+const myNumbers = [4, 1, -20, -7, 5, 9, -6];
+
+
+// removeNeg will take numbers + rule(callback)
+function removeNeg(numbers, callback) {
+  const myArray = []; // empty array to hold good fruits
+  for (const x of numbers) {
+    if (callback(x)) {   // apply rule
+      myArray.push(x);   // keep if rule is true
+    }
+  }
+  return myArray;
+  
+}
+
+// Rule: keep only non-negative numbers
+const posNumbers = removeNeg(myNumbers, (x) => x >= 0);
+
+document.getElementById("demo").innerHTML = posNumbers;
+</script>
+</body>
+</html> 
+<!-- 👉 Output: 4,1,5,9 
+ ✅ Explanation:
+
+removeNeg → main function (fruit filterer).
+
+(x) => x >= 0 → callback rule (keep only positive numbers = good fruits).
+
+Result: Only good fruits are returned.-->

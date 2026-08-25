@@ -1,0 +1,38 @@
+<!-- 🔹 What is Asynchronous JavaScript?
+
+👉 Normally, JavaScript is synchronous (runs one line at a time in order).
+But sometimes, we need to wait for something (like a timer ⏳, API response 🌐, or user action 🖱️).
+
+Instead of blocking everything while waiting, JavaScript uses asynchronous functions → they keep working in the background and call you back when ready.
+
+✅ Real-Life Analogy
+
+Synchronous (Normal): You cook Maggi 🍜 and stand near the stove until it’s done. You can’t do anything else.
+
+Asynchronous: You put Maggi on the stove ⏳, set a timer ⏰, and go watch TV 📺. When the timer rings, you return and eat.
+👉 This is exactly what JavaScript does with setTimeout and setInterval. -->
+<!-- ✅ Example 1: Callback with Calculator (Simple) -->
+ 
+ <!DOCTYPE html>
+<html>
+<body>
+<h2>Asynchronous Example 1</h2>
+<p id="demo"></p>
+
+<script>
+function myDisplayer(something) {
+  console.log(something);
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);  // call display function
+}
+
+myCalculator(5, 5, myDisplayer);
+</script>
+</body>
+</html>
+
+<!-- 👉 Here, myCalculator does math first, then calls back myDisplayer with the result.
+This is synchronous but shows the idea of callback. -->

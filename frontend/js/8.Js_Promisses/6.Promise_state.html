@@ -1,0 +1,103 @@
+<!-- 🔹 What is a Promise?
+
+👉 A Promise is like a contract between you and JavaScript:
+
+Producing code = the work being done (can take time, like fetching data, waiting for a timer, downloading a file).
+
+Consuming code = the code that needs the result (but must wait).
+
+So a Promise links both:
+
+✅ If success → resolves (calls resolve)
+
+❌ If failure → rejects (calls reject)
+🔹 Promise States
+
+A Promise can be in 3 states:
+
+Pending → still working
+
+Fulfilled → finished successfully (resolve called)
+
+Rejected → failed (reject called)
+🔹 Real-Life Analogy
+
+Think of ordering food online 🍔:
+
+You order → Promise is pending
+
+Food delivered → Promise is fulfilled ✅
+
+Restaurant cancels → Promise is rejected ❌ -->
+
+<!-- 🔹 Basic Example  -->
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Promises</h2>
+<p id="demo"></p>
+
+<!-- <script>
+// This function shows the result on the webpage
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+// Create a promise
+// A promise has 3 possible states: pending, fulfilled, or rejected
+let myPromise = new Promise(function (myResolve, myReject) {
+  let x = 1;
+
+  // If the condition is true, the promise is fulfilled
+  if (x === 0) {
+    myResolve("Order Delivered ✅");
+  } else {
+    // If the condition is false, the promise is rejected
+    myReject("Order Failed ❌");
+  }
+
+  // This shows the promise state in the console
+  
+});
+console.log(myPromise);
+
+// Use the promise
+// .then() handles the success and failure cases
+myPromise.then(
+  function(value) {
+    myDisplayer(value); // runs when the promise is fulfilled
+  },
+  function(error) {
+    myDisplayer(error); // runs when the promise is rejected
+  }
+);
+</script> -->
+
+<h3>Pending State Example</h3>
+<p>This promise stays in <strong>Pending</strong> state for 3 seconds before resolving.</p>
+<p id="pendingDemo">Loading...</p>
+
+<script>
+// This promise will stay pending for 3 seconds
+// Then it will resolve and show a success message
+let pendingPromise = new Promise(function (resolve) {
+  setTimeout(function () {
+    resolve("Promise resolved after 3 seconds ✅");
+  }, 3000);
+});
+
+// When the promise is finished, update the page
+pendingPromise.then(function (value) {
+  document.getElementById("pendingDemo").innerHTML = value;
+});
+console.log(pendingPromise); // Shows the promise state in the console
+</script>
+</body>
+</html> 
+
+<!-- 👉 Here, the Promise checks a condition (x == 0).
+
+If yes → success (resolve)
+
+If no → error (reject) -->

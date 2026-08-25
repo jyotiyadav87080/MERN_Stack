@@ -1,0 +1,16 @@
+<!-- ✅ Example 3: Passing Whole Function Instead -->
+ <!DOCTYPE html>
+<html>
+<body>
+<h2>Asynchronous Example 3: Inline Callback</h2>
+<p id="demo"></p>
+
+<script>
+setTimeout(function() { 
+  document.getElementById("demo").innerHTML = "Your pizza is ready 🍕"; 
+}, 3000);
+</script>
+</body>
+</html>
+
+<!-- 👉 Instead of writing myFunction separately, we directly pass a whole function into setTimeout. -->

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>☕ Async/Await Example - Coffee Shop</h2>
+  <p id="demo"></p>
+
+  <script>
+    // async function means this function will work with promises
+    async function makeCoffee() {
+      // Show a message before starting the task
+      document.getElementById("demo").innerHTML = "Barista: Starting to make your coffee... ⏳";
+
+      // Create a promise that will finish after 3 seconds
+      // This simulates a real task like brewing coffee
+      let coffeeReady = new Promise(function(resolve) {
+        setTimeout(() => resolve("✅ Coffee is Ready! ☕"), 3000);
+      });
+      console.log(coffeeReady)
+      // await means: pause here until the promise is finished
+      // Then store the result in the variable result
+      let result = await coffeeReady;
+
+      // Show the final result on the page
+      document.getElementById("demo").innerHTML = result;
+    }
+
+    // This function runs independently while coffee is being prepared
+    function readMagazine() {
+      console.log("📰 You are reading a magazine while waiting...");
+    }
+
+    // Another small task that runs at the same time
+    function serveTea() {
+      console.log("🫖 Your tea will be served...");
+    }
+
+    // Start the async function
+    makeCoffee();
+
+    // Run other tasks at the same time
+    readMagazine();
+    serveTea();
+  </script>
+</body>
+</html>

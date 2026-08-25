@@ -1,0 +1,36 @@
+<!-- 🧠 1. What is a Set in JavaScript?
+
+👉 Think of a Set like a bag where you can only store unique items — no duplicates allowed.
+
+🛍️ Real-life Example:
+Imagine a party guest list — if someone tries to enter their name twice, the list ignores the duplicate.
+
+🧩 Syntax:
+
+const mySet = new Set(["a", "b", "c",]);
+
+"a", "b", "c" are unique values.
+
+If you try to add "a" again, it won’t appear twice
+
+✅ Example – Iterating Over a Set -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>🎉 Party Guest List (Set Example)</h2>
+  <p id="demo"></p>
+
+  <script>
+    // Creating a Set (unique guest names)
+    const guests = new Set(["Vineet","Pargat", "Rakesh", "Pargat","Upasana", "Muskan","Gopal","Muskan","Upasana","Anisha","Upasana"]); 
+
+    let list = "";
+    for (const guest of guests) {
+      list += "🎟️ Guest: " + guest + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = list;
+  </script>
+</body>
+</html>

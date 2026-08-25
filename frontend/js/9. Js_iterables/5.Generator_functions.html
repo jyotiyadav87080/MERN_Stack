@@ -1,0 +1,119 @@
+<!-- 🧠 What is a Generator in Simple Words?
+
+👉 Normally, a JavaScript function runs from start to end and returns only one value.
+But a Generator Function can:
+
+Pause in between (using yield)
+
+Return multiple values one by one
+
+Resume from where it stopped!
+
+💡 Think of it like a Netflix series 🎬
+You can pause, resume, and watch the next episode later — instead of watching all at once!
+
+🧩 Normal Function vs Generator Function
+
+🔸 Normal Function
+
+function normalFunction() {
+  return "🍎 Apple";
+}
+
+console.log(normalFunction()); // 🍎 Apple
+
+
+➡️ It gives only one value and finishes.
+
+🔸 Generator Function
+function* fruitGenerator() {
+  yield "🍎 Apple";
+  yield "🍌 Banana";
+  yield "🍇 Grapes";
+}
+
+Here:
+
+The * after function makes it a Generator Function.
+
+The yield keyword is like a pause point — it returns one value at a time. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generator with Multiple Functions Example</title>
+</head>
+<body>
+  <h2>👨‍🍳 Fruit Preparation Process using Generator</h2>
+  <button onclick="nextStep()">Next Step ▶️</button>
+  <p id="output">Click "Next Step" to start preparing your fruit salad 🍉</p>
+
+  <script>
+    // Step 1: Define normal functions for different tasks
+    function washFruits() {
+      return "🧼 Washing fruits...";
+    }
+
+    function cutFruits() {
+      return "🔪 Cutting fruits into pieces...";
+    }
+
+    function serveFruits() {
+      return "🍽️ Serving the fruit salad...";
+    }
+
+    // Step 2: Create a generator function that uses these functions
+    function* fruitProcess() {
+      yield washFruits();  // first task
+      yield cutFruits();   // second task
+      yield serveFruits(); // third task
+      return "✅ All steps done! Enjoy your fruit salad 😋";
+    }
+
+    // Step 3: Create generator object
+    const fruitGenerator = fruitProcess();
+
+    // Step 4: Function to show next step
+    function nextStep() {
+      const result = fruitGenerator.next(); // move to next yield
+      document.getElementById("output").innerHTML = result.value;
+      console.log(result);
+    }
+  </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Passing Data into Generators</title>
+</head>
+<body>
+  <h2>🍊 Make Your Juice Using Generator</h2>
+  <button onclick="makeJuice()">Next Step 🍹</button>
+  <p id="output">Let's make some juice step by step!</p>
+
+  <script>
+    function washFruits() { return "🧼 Washing fruits..."; }
+    function cutFruits() { return "🔪 Cutting fruits..."; }
+    function blendFruits(type) { return `🥤 Blending ${type} juice...`; }
+
+    function* juiceMaker() {
+      yield washFruits();
+      yield cutFruits();
+      let type = prompt("Which juice would you like? (Mango/Orange/Apple)");
+      yield blendFruits(type);
+      return "✅ Juice is ready! Cheers 🍹";
+    }
+
+    const maker = juiceMaker();
+
+    function makeJuice() {
+      const res = maker.next();
+      document.getElementById("output").innerText = res.value;
+    }
+  </script>
+</body>
+</html> -->

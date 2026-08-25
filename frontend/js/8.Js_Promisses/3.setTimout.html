@@ -1,0 +1,33 @@
+<!-- ✅ Example 2: Asynchronous setTimeout ⏳ (Wait Before Running) -->
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Asynchronous Example 2: setTimeout</h2>
+<p id="demo"></p>
+<h1 id="heading">Welcome!</h1>
+
+<script>
+  function sayHello(){
+  document.getElementById("heading").innerHTML = "Hello";
+  }
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello after 3 seconds";
+}
+
+// Run myFunction after 3 seconds
+sayHello();
+setTimeout(myFunction, 3000);
+</script>
+</body>
+</html>
+
+<!-- 👉 What happens:
+
+You start a 3 sec timer.
+
+JavaScript keeps doing other things.
+
+After 3 sec → myFunction is called automatically.
+
+💡 Real-life: Ordering pizza 🍕 (it takes time). You don’t just stand there—you do other things until the shop calls you back when ready. -->
