@@ -1,0 +1,19 @@
+<!-- 5. flatMap() – Map + Flatten
+
+👉 Maps values, then flattens them.
+Real Life Example: Each student’s marks and double marks.
+<!DOCTYPE html> -->
+<html>
+<body>
+<h2>FlatMap Example</h2>
+<p id="demo"></p>
+
+<script>
+const nums = [1, 2, 3];
+const result = nums.flatMap(x => [x, x * 10]);
+// [[1, 10], [2, 20], [3, 30]]
+
+document.getElementById("demo").innerHTML = result;
+</script>
+</body>
+</html>

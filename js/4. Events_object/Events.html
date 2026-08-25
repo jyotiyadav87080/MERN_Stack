@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Combined DOM Events Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .box { padding: 10px; border: 1px solid #ccc; margin-bottom: 15px; }
+    input, button, select { margin-top: 10px; padding: 5px; }
+  </style>
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+    // returns 5
+  </script>
+</head>
+<body onload="alert(add(2, 3));">
+  <h1>🧠 Combined JavaScript DOM Events</h1>
+
+  <div class="box">
+    <h3>1. onchange</h3>
+    <input type="text" onchange="alert('Input changed!')" placeholder="Type & blur">
+  </div>
+
+  <div class="box">
+    <h3>2. onclick</h3>
+    <button onclick="alert('Button clicked!')">Click Me</button>
+  </div>
+
+  <div class="box">
+    <h3>3. ondblclick</h3>
+    <p ondblclick="alert('Double-clicked!')">Double-click this text</p>
+  </div>
+
+  <div class="box">
+    <h3>4. onmouseover / onmouseout</h3>
+    <p onmouseover="this.style.color='green'" onmouseout="this.style.color='blue'">
+      Hover over this text
+    </p>
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'">W3schools</a>
+  </div>
+
+  <div class="box">
+    <h3>5. onkeydown/onkeyup</h3>
+    <input type="text" onkeydown="console.log('Key pressed!')" placeholder="Press any key">
+    <input type="text" onkeyup="console.log('Key released!')" placeholder="Release a key">
+  </div>
+
+  <div class="box">
+    <h3>6. oninput</h3>
+    <input type="text" oninput="document.getElementById('liveText').textContent = this.value" placeholder="Typing...">
+    <p>You typed: <span id="liveText">Hello, World!</span></p>
+  </div>
+
+  <div class="box">
+    <h3>7. onchange with e.target.value</h3>
+    <input type="text" onchange="handleChange(event)" placeholder="Type and leave">
+    <p id="output">Changed value will appear here.</p>
+  </div>
+
+  <div class="box">
+    <h3>8. onsubmit</h3>
+    <form onsubmit="return handleFormSubmit(event)">
+      <input type="text" placeholder="Your name" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="box">
+    <h3>9. onfocus / onblur</h3>
+    <input type="text" onfocus="this.style.backgroundColor='lightyellow'" 
+    onblur="this.style.backgroundColor=''" placeholder="Focus me">
+  </div>
+
+  <div class="box">
+    <h3>10. onchange (select dropdown)</h3>
+    <select onchange="alert('Selected: ' + this.value)">
+      <option value="">Choose a fruit</option>
+      <option value="Apple">Apple</option>
+      <option value="Banana">Banana</option>
+      
+    </select>
+  </div>
+
+    <div class="box">
+        <h3>11. oncopy / onpaste</h3>
+        <textarea oncopy="alert('Text copied!')" onpaste="alert('Text pasted!')" placeholder="Try copying/pasting here"></textarea>
+
+  <div class="box">
+    <h3>12. onscroll</h3>
+    <div style="height:100px; overflow-y:scroll" onscroll="console.log('Scrolled!')">
+      <p>Scroll this box to trigger onscroll event.</p>
+      <p style="height:200px"></p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>13. onresize</h3>
+    <p>Resize the browser and check console (F12).</p>
+  </div>
+
+  <div class="box">
+    <h3>14. oncontextmenu</h3>
+    <p oncontextmenu="alert('Right-click blocked!'); return false;">Right-click on this text</p>
+  </div>
+
+  <div>
+    <button onclick="alert(add(2, 3))">Click Me</button>
+  </div>
+
+  <script>
+    window.onresize = () => console.log('Window resized!');
+
+    function handleChange(e) {
+      document.getElementById("output").innerHTML = `You changed the input to: <strong>${e.target.value}</strong>`;
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      alert("Form submitted!");
+      return false;
+    }
+
+    function add (a, b) {
+      return a + b;
+    }
+     
+    function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+const father = new Person("John", "Doe", 50, "blue");
+const mother = new Person("Sally", "Rally", 48, "green");
+const daughter = new Person("Jane", "Doe", 20, "brown");
+const son = new Person("Mark", "Doe", 18, "blue");
+
+ // father object  = {
+  
+//   firstName: "John",
+//   lastName: "Doe",
+//   age: 50,
+//   eyeColor: "blue"
+//  }
+
+// mother object = {
+  
+//   firstName: "Sally",
+//   lastName: "Rally",
+//   age: 48,
+//   eyeColor: "green"
+//  }
+
+//  daughter object = {
+
+//     firstName: "Jane",
+//     lastName: "Doe",
+//     age: 20,
+//     eyeColor: "brown"
+//   }
+
+//  son object = {
+//  firstName: "Mark",
+//     lastName: "Doe",
+//     age: 18,
+//     eyeColor: "blue"
+//   }
+
+console.log(father.firstName,father.age,father.lastName); // John
+console.log(mother.age,mother.firstName,mother.lastName); // 48 Sally Rally
+console.log(daughter.firstName,daughter.age,daughter.lastName); // Jane 20 Doe
+console.log(son.firstName,son.age,son.lastName); // Mark 18 Doe
+
+  </script>
+</body>
+</html>

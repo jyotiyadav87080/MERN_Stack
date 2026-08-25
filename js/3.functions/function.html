@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 🔹 What are Functions? (ES6+ = Ecmma Script 6+)
+
+Functions are like process in programming.
+
+They take some input (optional).
+
+Do some work inside.
+
+And give back an output (optional).
+
+You can reuse them again and again without rewriting the same steps. 
+
+Example :- Coffee Machine ☕
+
+You press the button (calling the function).
+
+The machine takes water + coffee beans (input).
+
+It brews the coffee (processing).
+
+You get a cup of coffee (output).
+
+👉 Just like a function, you don’t make coffee step by step every time. You just "call" the machine.
+-->
+<script>
+// A simple function
+function add(a, b) {
+  
+  return a + b;
+}
+
+// Calling (using) the function
+console.log(add(2, 3)); // 5
+console.log(add(10, 20)); // 30
+
+// Javascript Functions Syntax
+
+// function name(p1, p2, p3) {
+//   // code to run
+//   return result;  
+// }
+// name(a,b,c);
+// 📌 Explanation
+
+// function keyword → tells JavaScript you are creating a function.
+
+// name → the name of the function (like naming your recipe).
+
+// (p1, p2, p3) → parameters (inputs, like ingredients).
+
+// { code } → the body (steps to prepare the dish).
+
+// return → sends back a result (like serving the dish).
+
+//Example :- Making Juice 🥤
+
+function makeJuice(fruit1, fruit2) {
+  // return "Juice made with " + fruit1 + " and " + fruit2;
+  return `<h1>Juice made with ${fruit1} and ${fruit2}</h1>`;
+  
+}
+
+document.write(makeJuice("Mango", "Orange")); 
+console.log(makeJuice("Apple", "Banana"));
+// 👉 Here:
+
+//1. function = recipe
+
+//2.  makeJuice = function name
+
+//3.  fruit1, fruit2 = parameters (ingredients)
+
+//4.  { return ... } = making + serving the juice
+
+//5.  console.log(...) = drinking (using the output)
+
+// 🔹 Function Invocation ()
+
+// A function only runs when it is called (invoked).
+// The () operator is like pressing the START button on a machine.
+
+// 🔹 Ways a Function Can Be Invoked
+
+// 1. Called from JavaScript code
+
+// Like dialing a number on your phone 📱 to make a call.
+
+function greet() {
+  console.log("Hello, welcome!");
+}
+
+greet();  // Function is invoked here
+
+// 2. Invoked by an Event (user action)
+
+// Like pressing a button on a remote 📺 – only works when the button is clicked.
+
+// function sayHi() {
+//   alert("Hi, you clicked the button!");
+// }
+// <button onclick="sayHi()">Click Me</button>
+
+// 3. Self-Invoked (runs automatically)
+
+// Like a microwave with auto-start – it begins as soon as you close the door.
+
+// (function () {
+//   console.log("I run automatically!");
+// })();
+
+// 🔹 When to Use What in Function Invocation
+// 1. Normal Function Call (greet();)
+
+// ✅ Use when you want your function to run immediately from code.
+
+// Best for calculations, reusable logic, helper functions.
+
+// 2. Event-Based Function Call (onclick, onchange, etc.)
+
+// ✅ Use when you want the function to run only after a user does something.
+
+// Best for interactivity (button clicks, typing, submitting forms).
+
+// 3. Self-Invoked Function (IIFE)
+
+// ✅ Use when you want a function to run automatically once, without being called separately.
+
+// Best for setup code, initialization, private logic.
+
+// JavaScript Arrow Functions?
+
+// Arrow functions are a shorter way to write functions in JavaScript.
+// They use the => symbol (called a “fat arrow”).
+
+// Normal Function
+add(5, 10);
+function add(a, b) {
+  return a + b;
+}
+
+ // 15
+// Arrow Function
+add(5, 10);
+const add = (a, b) => {
+  return a + b;
+};
+
+// 🔹 Simplified Rules
+
+// 1. If there’s only one line of code, you can remove {} and return.
+
+const add = (a, b) => a + b;
+console.log(add(5, 10)); // 15
+
+// 2. If there’s only one parameter, you can remove ():
+
+const square = n => n * n;
+console.log(square(4)); // 16
+
+// 3. If there are no parameters, you must use ():
+
+const sayHi = () => console.log(2+3);
+sayHi(); // 5
+
+// 🔹 Local Variables in JavaScript
+
+// Variables declared inside a function are called local variables.
+
+// They only exist inside that function.
+
+// They are created when the function runs and deleted when the function ends.
+
+// You can reuse the same variable name in different functions without conflict.
+
+// function greet() {
+//   let message = "Hello from inside the function!";
+//   console.log(message);
+//   document.write(message);
+// }
+
+// greet(); // Output: Hello from inside the function!
+// console.log(message); // ❌ Error: message is not defined
+
+// //👉 Here message is a local variable. It lives only inside greet() and cannot be used outside.
+
+
+// //🔹 Multiple Functions with Same Local Variable Name
+
+// function car() {
+//   let color = "Red";
+//   console.log("Car color: " + color);
+// }
+
+// function bike() {
+//   let color = "Blue";
+//   console.log("Bike color: " + color);
+// }
+
+// car();   // Car color: Red
+// bike();  // Bike color: Blue
+
+// //👉 Both functions use color, but they don’t interfere with each other because each color is local.
+
+// // 🔹 Parameters vs. Arguments in JavaScript
+// // ✅ Parameters
+
+// // Parameters are like placeholders (labels) in the function definition.
+
+// // They tell the function what kind of input it expects.
+
+// // Think of them as empty boxes waiting to be filled.
+
+// // ✅ Arguments
+
+// // Arguments are the actual values you pass into the function when calling it.
+
+// // They are the real things that go inside the boxes (parameters).
+
+// function greet(name) {   // "name" is a parameter
+//   console.log("Hello " + name);
+// }
+
+// greet("Alice"); // "Alice" is an argument
+// greet("Bob");   // "Bob" is an argument
+
+// // 👉 Here:
+
+// // name → Parameter (placeholder in the function definition).
+
+// // "Alice" and "Bob" → Arguments (actual values passed when function is invoked).
+
+// // Example :- Pizza Order 🍕
+
+// // Parameter: “topping” (in the menu recipe).
+
+// // Argument: “Cheese” or “Pepperoni” (what customer actually orders).
+
+// function add(x, y) {  // x and y are parameters
+//   return x + y;
+// }
+
+// console.log(add(5, 10)); // 5 and 10 are arguments
+// console.log(add(20, 30)); // 20 and 30 are arguments
+
+// //🔹 JavaScript this in Functions
+// // 👉 Think of this as:
+// // “Who owns the function when it runs?”
+// // 1. Global Scope (this = window)
+// // When you use this outside any object or function → it points to the global object (window in browsers).
+
+// console.log(this); // Window
+
+// // Example:
+// // Like shouting in a marketplace — everyone can hear (global space).
+
+// //2. Inside a Function
+// //By default, functions also make this the global object.
+
+// function test() {
+//   console.log(this);
+// }
+// test(); // Window
+
+// // ⚠️ In strict mode, it’s undefined.
+
+// // 🛠️ Real Life Example:
+// // You ask a question without context → nobody knows who you’re talking to (undefined).
+
+// // 3. Inside an Object Method
+
+// // When a function is inside an object, this = the object itself.
+
+// const car = {
+//   brand: "Tesla",
+//   showBrand: function() {
+//     console.log(this.brand);
+//   }
+// };
+
+// car.showBrand(); // Tesla
+
+
+// // 🛠️ Real Life Example:
+// // If you say “my house” when you’re inside your house → “my” = the house you’re in.
+
+// // 4. Inside an Event Handler
+
+// // In events, this = the element that triggered the event.
+
+// <button onclick="console.log(this)">Click Me</button>
+
+// // 👉 When clicked, this = the button itself.
+
+// // 🛠️ Real Life Example:
+// // If you press a switch, that switch (not all switches) turns on/off.
+
+// // 5. Using call(), apply(), bind()
+
+// // You can manually tell a function what this should be.
+
+// function greet() {
+//   console.log("Hello " + this.name);
+// }
+
+// const person = { name: "Alice" };
+// greet.call(person); // Hello Alice
+
+// // 🛠️ Real Life Example:
+// // Like asking someone else to answer the phone for you — you decide who responds.
+// </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!-- 7. toSpliced() – Safe Splice
+
+👉 Like splice but returns a new array (original unchanged).
+Real Life Example: Making a new list while keeping the old one safe. -->
+<!DOCTYPE html>
+<html>
+<body>
+<h2>toSpliced Example</h2>
+<p id="demo"></p>
+
+<script>
+const months = ["Jan", "Feb", "Mar", "Apr"];
+const newMonths = months.toSpliced(1, 2);
+
+document.getElementById("demo").innerHTML = 
+"Original: " + months + "<br>New: " + newMonths;
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form</title>
+</head>
+<script>
+  function validateForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let phone = document.getElementById("phone").value;
+
+    if (name === "" || email === "" || password === "" || phone === "") {
+      alert("Please fill in all fields!");
+      return false;
+    }
+
+    // Simple email check
+    if (!email.includes("@") || !email.includes(".") || !email.includes("com")) {
+      alert("Please enter a valid email!");
+      return false;
+    }
+
+    // Simple password check
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters long!");
+      return false;
+    }
+
+    // Simple phone number check
+    if (isNaN(phone) || phone.length !== 10) {
+      alert("Please enter a valid 10-digit phone number!");
+      return false;
+    }
+
+    return true;
+  }
+</script>
+<body>
+  <h2>Registration Form</h2>
+  <form>
+    <label>Name:</label>
+    <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+    <label>Email:</label>
+    <input type="email" id="email" placeholder="Enter your email"><br><br>
+
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter your password"><br><br>
+
+     <label>Phone Number:</label>
+    <input type="tel" id="phone" placeholder="Enter your phone number"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

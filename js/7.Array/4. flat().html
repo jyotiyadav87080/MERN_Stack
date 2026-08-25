@@ -1,0 +1,21 @@
+<!-- 4. flat() – Flatten Arrays
+
+👉 Converts multi-level array into a single-level.
+Real Life Example: Unpacking boxes inside boxes. -->
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Flat Example</h2>
+<p id="demo"></p>
+
+<script>
+const boxes = [[1, 2], [3, 4], [5, 6]];
+console.log(boxes)
+const flatBoxes = boxes.flat();
+console.log(flatBoxes)
+
+
+document.getElementById("demo").innerHTML = flatBoxes;
+</script>
+</body>
+</html>

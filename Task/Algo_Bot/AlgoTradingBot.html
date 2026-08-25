@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Algo Trading Bot (JS)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 24px; }
+    h1 { margin: 0 0 8px; }
+    button { padding: 10px 16px; font-size: 16px; cursor: pointer; }
+    pre { background: #f6f6f8; padding: 16px; border-radius: 8px; overflow: auto; }
+    .row { margin: 8px 0; }
+    .stats { margin-top: 12px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>Simple Algo Trading Bot</h1>
+  <div class="row">
+    <label>Rounds: <input id="rounds" type="number" value="10" min="1" /></label>
+    <button id="runBtn">Run Simulation</button>
+  </div>
+  <div class="stats" id="stats"></div>
+  <pre id="log"></pre>
+
+  <script>
+    // ===== Variables =====
+    let balance = 1000;     // starting cash
+    let stockPrice = 100;   // initial price
+    let holdings = 0;       // number of shares
+    let round = 0;
+
+    // ===== Utility to log to page and console =====
+    function logLine(text) {
+      const logEl = document.getElementById("log");
+      logEl.textContent += text + "\n";
+      console.log(text);
+    }
+
+    function updateStats() {
+      const statsEl = document.getElementById("stats");
+      const portfolioValue = balance + (holdings * stockPrice);
+      // Using operators: +, *, and string interpolation
+      statsEl.textContent =
+        "Balance: $" + balance.toFixed(2) +
+        " | Holdings: " + holdings +
+        " | Last Price: $" + stockPrice.toFixed(2) +
+        " | Portfolio Value: $" + portfolioValue.toFixed(2);
+    }
+
+    // ===== Functions =====
+
+    // 1) Randomly update the stock price to a value between 80 and 120
+    function updatePrice() {
+      // Math.random() in [0,1), scale to [80,120]
+      const min = 80;
+      const max = 120;
+      stockPrice = Math.floor(Math.random() * (max - min + 1)) + min;
+      return stockPrice;
+    }
+
+    // 2) Decide the action based on the price
+    function decideAction(price) {
+      // Using comparison operators: < and >
+      if (price < 90) {
+        return "BUY";
+      } else if (price > 110) {
+        return "SELL";
+      } else {
+        return "HOLD";
+      }
+    }
+
+    // 3) Execute the trade using arithmetic operators
+    function trade(action) {
+      // BUY one share if affordable
+      if (action === "BUY" && balance >= stockPrice) {
+        balance = balance - stockPrice; // arithmetic operator -
+        holdings = holdings + 1;        // arithmetic operator +
+        logLine("→ Bought 1 share at $" + stockPrice);
+      }
+      // SELL one share if we have any
+      else if (action === "SELL" && holdings > 0) {
+        balance = balance + stockPrice; // +
+        holdings = holdings - 1;        // -
+        logLine("→ Sold 1 share at $" + stockPrice);
+      }
+      // HOLD otherwise
+      else {
+        logLine("→ Hold position");
+      }
+    }
+
+    // 4) Run one round
+    function runRound() {
+      round = round + 1;
+      const price = updatePrice();
+      const action = decideAction(price);
+      logLine("Round " + round + ": Price = $" + price + " | Action = " + action);
+      trade(action);
+      updateStats();
+    }
+
+    // 5) Run N rounds
+    function runSimulation(totalRounds) {
+      // Reset state for a fresh run
+      balance = 1000;
+      stockPrice = 100;
+      holdings = 0;
+      round = 0;
+      document.getElementById("log").textContent = "";
+      updateStats();
+
+      for (let i = 0; i < totalRounds; i = i + 1) { // operators: <, =, +, ++ equivalent expressed explicitly
+        runRound();
+      }
+
+      const finalValue = balance + (holdings * stockPrice);
+      logLine("\nFinal Summary:");
+      logLine("Balance = $" + balance.toFixed(2));
+      logLine("Holdings = " + holdings + " shares");
+      logLine("Last Price = $" + stockPrice.toFixed(2));
+      logLine("Total Portfolio Value = $" + finalValue.toFixed(2));
+    }
+
+    // UI: hook button
+    document.getElementById("runBtn").addEventListener("click", function () {
+      const roundsInput = document.getElementById("rounds");
+      const n = Math.max(1, parseInt(roundsInput.value, 10) || 10);
+      runSimulation(n);
+    });
+
+    // Initial stats display
+    updateStats();
+  </script>
+</body>
+</html>

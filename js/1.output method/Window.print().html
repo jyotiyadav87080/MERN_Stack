@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Output Methods</title>
+</head>
+<body>
+
+    <h1>JavaScript Output Methods</h1>
+    <p id="demo">My First Paragraph</p>
+    <button onclick="window.print()">Print this page</button>
+
+    <script>
+        // ========================================================
+        // JavaScript has 4 main ways to display/output data:
+        // ========================================================
+
+        // 1. window.alert() — Shows a popup alert dialog box
+        //    Use: Quick messages or debugging (blocks user interaction)
+        window.alert("Hello! This is an alert box.");
+
+        // 2. document.write() — Writes directly into the HTML page
+        //    Use: Testing/demos only. Calling it AFTER the page loads
+        //    will OVERWRITE the entire page content!
+        document.write("<p>This was written by document.write()</p>");
+
+        // 3. innerHTML — Changes the content of an HTML element
+        //    Use: Updating specific parts of the page dynamically
+        document.getElementById("demo").innerHTML = "Paragraph changed by innerHTML!";
+
+        // 4. console.log() — Prints output to the browser console (F12)
+        //    Use: Debugging — the most common method for developers
+        console.log("This message appears in the browser console (F12)");
+
+        // BONUS: window.print() — Opens the browser's Print dialog
+        //    Used on the button above to let users print the page
+    </script>
+
+</body>
+</html>

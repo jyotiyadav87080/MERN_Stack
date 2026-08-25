@@ -1,0 +1,21 @@
+<!-- 1. delete (⚠️ Not Recommended)
+
+👉 Removes an item but leaves an empty hole.
+Real Life Example: Like erasing a student’s name from attendance but leaving an empty seat. -->
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Delete Example</h2>
+<p id="demo"></p>
+
+<script>
+const students = ["John", "Sara", "Mike"];
+delete students[0];  
+//console.log(students[1]); // ["John", empty, "Mike"]
+document.getElementById("demo").innerHTML = students + "<br>Seat 2 is now empty: " + students[0];
+console.log(students);
+
+
+</script>
+</body>
+</html>

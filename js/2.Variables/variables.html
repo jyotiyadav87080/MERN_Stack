@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Variables</h1>
+
+<p>The underscore is treated as a letter in JavaScript names.</p>
+
+<p id="demo"></p>
+
+<script>
+//Variables in JS.
+
+//let sugar = "Sweet Sugar"; 
+//console.log(sugar); // Output: Sweet Sugar
+
+//How to Declare Variables in JavaScript :- There are 4 ways:
+//(a) Automatic Declaration
+//JavaScript automatically creates a variable if you don’t declare it.
+//But 👉 this is not good practice.
+// x = 5;
+// y = 6;
+// z = x + y;
+// console.log(z); 
+//💡 Real-life analogy: Writing notes without labeling them — later, you might forget what they mean. That’s why always declare properly.
+
+
+// (b) Using var (Old Way)
+
+// var x = 5;
+// var y = 6;
+// var x = 10;
+// var z = x + y;
+// console.log(z); // 16
+
+
+
+// -> var was used in old JavaScript (before 2015).
+
+// -> It works but has some issues, so now we mostly use let and const.
+
+
+// (c) Using let (Modern Way)
+
+let x = 5;
+let y = 6;
+let z = x + y;
+console.log(z); // 11
+
+// function employeeDetails() {
+//     let employee = "Rahul";
+
+//     console.log("Employee:", employee);
+
+//     if (true) {
+//         let department = "IT";
+
+//         console.log(employee + " works in " + department);
+
+//         department = "HR";   
+
+//         console.log("Department Changed to:", department);
+//     }
+
+//     console.log(employee); 
+// }
+
+// employeeDetails();
+
+// -> Use let when the value can change later.
+
+// 💡 Example:
+
+//   let age = 20;
+//  age = 21; // now the value is updated
+//  console.log(age); // 21
+
+// (d) Using const (Constant Value)
+
+const pi = 3.14;
+
+// -> Use const when the value should not change.
+
+// const myName = "Manish";
+// myName = "Ravi"; //❌ Error! (cannot change)
+// console.log(myName);
+//✔️ Rule: Always use const first, use let only if the value needs to change. Use var only for old browsers.
+
+// 3. Variables in Algebra vs JavaScript
+
+// Just like in Math,
+
+// let x = 5;
+
+// let y = 6;
+// let z = x + y; // z = 11
+
+// 4. Identifiers (Variable Names)
+
+// Rules for naming:
+
+// 1. Can contain letters, digits, _, and $
+
+// 2. Must begin with a letter, _ or $ (not a number)
+
+// 3. Case-sensitive (carName ≠ CarName)
+//  let carName = "Mustang";
+//  Carname = "Mustang Shelby";
+//  console.log(carName) // Mustang
+//  console.log(Carname) // Mustang Shelby
+ 
+// 4. Cannot use reserved keywords (like let, class, return)
+
+// let age = 20;
+// let _price = 100;
+// let $money = 500;
+
+// ❌ Invalid Example:
+
+// let 1car = "Volvo"; // Error (cannot start with number)
+
+// 5. Assignment Operator (=)
+
+// In JavaScript, = means assign value (not equal to like in math).
+
+// let x == 5;
+// x = x + 3; // Now x becomes 8
+
+// 💡 Example:
+// Imagine you had ₹5 in your wallet.
+// Then you got ₹3 more.
+// Now your wallet has ₹8.
+
+
+// 6. Data Types in Variables
+
+// Variables can store different types of data:
+
+// const pi = 3.14;        // Number
+// let name = "John Doe";  // String (text)
+// let answer = 'Yes!';    // String with single quotes
+// let isActive = true;    // Boolean (true or false)
+// 👉 Rule: Numbers are written without quotes, Strings are written with quotes.
+
+// 💡 Example:
+
+// let age = 25; → Age is a number.
+
+// let city = "Delhi"; → City is text.
+
+// 7. Declaring Variables
+
+// You can declare first, then assign later:
+
+// let carName;
+// carName = "Volvo";
+
+// Or declare and assign together:
+
+// let carName = "Volvo";
+
+// 💡 Example:
+
+// Empty glass first (declare) → then pour water later (assign).
+
+// 8. Multiple Variables in One Line
+
+// let person = "John Doe", carName = "Volvo", price = 200;
+
+//Or in multiple lines:
+
+// let person = "John Doe",
+//     carName = "Volvo",
+//     price = 200;
+
+// 9. Undefined Value
+
+// If you declare but don’t assign, the value is undefined.
+
+
+ let carName;
+ console.log(carName); // undefined
+
+ let age= null;
+ console.log(age); // null
+
+// 💡 Example:
+// Like having an empty jar with a label but nothing inside yet.
+
+// 10. Re-declaring Variables
+
+// -> With var → you can re-declare, no issue:
+// var car = "Volvo";
+// var car; // Still "Volvo"
+
+//With let and const → ❌ Cannot re-declare:
+
+// let car = "Volvo";
+// let car; // Error
+
+// 11. Arithmetic with Variables
+
+// You can do math operations:
+
+// let x = 5 + 2 + 3; // 10
+
+// But if you use strings, it joins (concatenates):
+
+// let x = "John" + " " + "Doe"; // John Doe
+
+// Be careful:
+
+// let x = "5" + 2 + 3; // "523" (string concatenation)
+// let y = 2 + 3 + "5"; // "55" (because first numbers add, then string)
+
+// 12. $ and _ in Variable Names
+
+// ✔️ Both $ and _ are allowed in names.
+
+// let $money = 100;
+// let _hiddenValue = 500;
+
+// $ is often used in jQuery (a JavaScript library).
+// Example: $("p") means select all <p> elements in HTML.
+
+// _ is often used by programmers for private/hidden variables.
+
+// 💡 Example: Like writing _secretNote in your notebook so others know it’s private.
+
+let _secret = undefined;
+console.log(typeof _secret); // undefined
+let _price = null ;
+console.log(typeof _price); // object
+</script>
+
+</body>
+</html> 
