@@ -1,0 +1,14 @@
+{
+  "name": "ai-chatbot-backend",
+  "version": "1.0.0",
+  "description": "AI Chatbot Backend",
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
